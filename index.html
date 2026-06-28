@@ -153,6 +153,35 @@
     }
 
     .info-box strong { color: #333; }
+
+    .like-box {
+      margin-top: 24px;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .like-box p {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 12px;
+    }
+
+    .btn-like {
+      padding: 10px 24px;
+      background-color: #1877F2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-like:hover { background-color: #166fe5; }
+    .btn-like.liked { background-color: #42b72a; cursor: default; }
   </style>
 </head>
 <body>
@@ -182,14 +211,11 @@
       <h2>Welkom! 👋</h2>
       <p id="welcome-text">Je bent ingelogd.</p>
       <div class="info-box">
-        <strong>🔓 Leerpunt: waarom plaintext gevaarlijk is</strong><br><br>
-        Jouw e-mail en wachtwoord zijn zojuist precies zo opgeslagen in de Supabase database als je ze hebt ingetypt.
-        Niemand heeft je gecontroleerd — je bent gewoon doorgelaten.<br><br>
-        In een echte applicatie wordt een wachtwoord altijd <strong>gehasht</strong> opgeslagen —
-        een wiskundige bewerking die het wachtwoord omzet naar een onleesbare code.
-        Zelfs de database-eigenaar kan het originele wachtwoord dan niet meer lezen.
-      </div>
+    <div class="like-box">
+      <p>👍 Please like our page!</p>
+      <button class="btn-like" id="like-btn" onclick="handleLike()">Like</button>
     </div>
+
   </div>
 </div>
 
@@ -245,6 +271,13 @@
       msg.textContent = 'Er ging iets mis. Controleer de console (F12).';
       console.error(result.data);
     }
+  }
+
+  function handleLike() {
+    const btn = document.getElementById('like-btn');
+    btn.textContent = '👍 Liked!';
+    btn.classList.add('liked');
+    btn.disabled = true;
   }
 
   function handleLogout() {
